@@ -1,6 +1,7 @@
 package com.mperminov.compose_intro_sprint26.playlist
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.mperminov.compose_intro_sprint26.R
@@ -60,8 +61,8 @@ val tracks = listOf(
 
 @Composable
 fun TrackList(tracks: List<TrackUiState>) {
-    Column {
-        tracks.forEach { trackUiState ->
+    LazyColumn {
+        items(tracks) { trackUiState ->
             Track(trackUiState = trackUiState)
         }
     }

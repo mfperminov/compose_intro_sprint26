@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.mperminov.compose_intro_sprint26.playlist.TrackList
+import com.mperminov.compose_intro_sprint26.playlist.tracks
 import com.mperminov.compose_intro_sprint26.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    RolesWidget(practicumRoles)
+                    TrackList(tracks = tracks)
                 }
             }
         }
