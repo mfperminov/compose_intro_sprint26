@@ -1,0 +1,50 @@
+package com.mperminov.compose_intro_sprint26
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.mperminov.compose_intro_sprint26.ui.theme.AppTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            AppTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    RolesWidget(practicumRoles)
+                }
+            }
+        }
+    }
+}
+
+private val practicumRoles = listOf("mentor", "curator", "reviewer")
+
+@Composable
+fun RolesWidget(roles: List<String>, modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Text(text = "We have: ")
+        roles.forEach { role ->
+            Text(text = role)
+        }
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun GreetingPreview() {
+    AppTheme {
+        RolesWidget(practicumRoles)
+    }
+}
