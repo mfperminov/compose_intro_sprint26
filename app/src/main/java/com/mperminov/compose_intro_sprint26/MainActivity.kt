@@ -34,18 +34,43 @@ class MainActivity : ComponentActivity() {
 private val practicumRoles = listOf("mentor", "curator", "reviewer")
 
 @Composable
-fun RolesWidget(roles: List<String>, modifier: Modifier = Modifier) {
+fun RolesWidget(
+    roles: List<String>,
+    modifier: Modifier = Modifier,
+    headerText: String = "We have",
+) {
     Column(modifier = modifier) {
-        Text(text = "We have: ")
+        Text(text = headerText)
         roles.forEach { role ->
             Text(text = role)
         }
     }
 }
 
+@Composable
+fun NaiveRolesWidget(
+    roles: List<String>,
+    modifier: Modifier = Modifier,
+    headerText: String = "We have",
+) {
+    Text(text = headerText)
+    roles.forEach { role ->
+        Text(text = role)
+    }
+
+}
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun GreetingPreview() {
+fun NaiveRolesWidgetPreview() {
+    AppTheme {
+        NaiveRolesWidget(practicumRoles)
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun RolesWidgetPreview() {
     AppTheme {
         RolesWidget(practicumRoles)
     }
